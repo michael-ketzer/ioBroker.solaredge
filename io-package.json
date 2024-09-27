@@ -1,8 +1,21 @@
 {
   "common": {
-    "name": "solaredge",
-    "version": "1.4.1",
+    "name": "solaredge-with-storage",
+    "version": "1.5.0",
     "news": {
+      "1.5.0": {
+        "en": "Added storage flow data",
+        "de": "Speicher-Daten hinzugefügt",
+        "ru": "Added storage flow data",
+        "pt": "Added storage flow data",
+        "nl": "Added storage flow data",
+        "fr": "Added storage flow data",
+        "it": "Added storage flow data",
+        "es": "Added storage flow data",
+        "pl": "Added storage flow data",
+        "uk": "Added storage flow data",
+        "zh-cn": "Added storage flow data"
+      },
       "1.4.1": {
         "en": "Adapter requires node.js >= 18 and js-controller >= 5 now\nDependencies have been updated",
         "de": "Adapter benötigt node.js >= 18 und js-controller >= 5 jetzt\nAbhängigkeiten wurden aktualisiert",
@@ -143,7 +156,7 @@
     "readme": "https://github.com/iobroker-community-adapters/ioBroker.solaredge/blob/master/README.md",
     "loglevel": "info",
     "mode": "schedule",
-    "schedule": "*/15 * * * *",
+    "schedule": "*/10 * * * *",
     "type": "energy",
     "compact": true,
     "connectionType": "cloud",
