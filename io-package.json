@@ -1,6 +1,6 @@
 {
   "common": {
-    "name": "solaredge-with-storage",
+    "name": "solaredge",
     "version": "1.5.0",
     "news": {
       "1.5.0": {
