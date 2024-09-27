@@ -62,6 +62,9 @@ async function checkStatesCreationNeeded(){
         await checkStateCreationNeeded('currentFlowGrid');
         await checkStateCreationNeeded('currentFlowLoad');
         await checkStateCreationNeeded('currentFlowPv');
+        await checkStateCreationNeeded('storageStatus');
+        await checkStateCreationNeeded('currentFlowStorage');
+        await checkStateCreationNeeded('storageChargeLevel');
     }
 }
 
@@ -210,6 +213,12 @@ async function main() {
                         await adapter.setStateChangedAsync(`${siteid}.currentFlowGrid`, powerFlow.GRID ? powerFlow.GRID.currentPower : 0, true);
                         await adapter.setStateChangedAsync(`${siteid}.currentFlowLoad`, powerFlow.LOAD ? powerFlow.LOAD.currentPower : 0, true);
                         await adapter.setStateChangedAsync(`${siteid}.currentFlowPv`, powerFlow.PV ? powerFlow.PV.currentPower : 0, true);
+
+                        if (powerFlow.STORAGE) {
+                            await adapter.setStateChangedAsync(`${siteid}.storageStatus`, powerFlow.STORAGE.status, true);
+                            await adapter.setStateChangedAsync(`${siteid}.currentFlowStorage`, powerFlow.STORAGE.currentPower, true);
+                            await adapter.setStateChangedAsync(`${siteid}.storageChargeLevel`, powerFlow.STORAGE.chargeLevel, true);
+                        }
                     }
                 }
             }
@@ -230,7 +239,7 @@ async function main() {
         } catch (err) {
             this.log.error(`Could not check or adjust the schedule: ${err.message}`);
         }
-
+        
         adapter.stop();
     }
 }
