@@ -184,6 +184,33 @@ async function main() {
                             role: 'value.power.produced',
                             desc: 'Current production from PV'
                         });
+                        await adapter.createStateAsync('', siteid, 'storageStatus', {
+                            name: 'Current storage status: STORAGE',
+                            type: 'string',
+                            read: true,
+                            write: false,
+                            unit: '',
+                            role: 'value.storage.status',
+                            desc: 'Current status from STORAGE'
+                        });
+                        await adapter.createStateAsync('', siteid, 'currentFlowStorage', {
+                            name: 'Current flow: STORAGE',
+                            type: 'number',
+                            read: true,
+                            write: false,
+                            unit: 'kW',
+                            role: 'value.storage.flow',
+                            desc: 'Current flow of STORAGE'
+                        });
+                        await adapter.createStateAsync('', siteid, 'storageChargeLevel', {
+                            name: 'Current STORAGE charge level',
+                            type: 'number',
+                            read: true,
+                            write: false,
+                            unit: 'kW',
+                            role: 'value.storage.level',
+                            desc: 'Current storage charge level'
+                        });
                     }
 
                     createStates = false;
